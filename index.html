@@ -27,14 +27,6 @@
         <input class="btn" type="submit" value="Submit">
       </form>
 
-      <!-- <ul id="users"></ul> -->
-
-      <!-- <ul class="items">
-        <li class="item">Item 1</li>
-        <li class="item">Item 2</li>
-        <li class="item">Item 3</li>
-      </ul> -->
-    <!-- </section> -->
     
 
     <script>
@@ -46,6 +38,12 @@
 
     localStorage.setItem('name',name);
     localStorage.setItem('email',email);
+
+    const obj = {
+        name:name,
+        email:email
+    }
+    localStorage.setItem('userDetails',JSON.stringify(obj));
 }
     </script>
   </body>
