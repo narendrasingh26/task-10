@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
+     <!-- <header> 
       <h1>JS For Beginners</h1>
     </header>
 
@@ -16,16 +16,28 @@
       <form onsubmit="saveToLocalStorage(event)">
         <h1>Add User</h1>
         <div class="mg"></div>
-        <div>
+         <div> 
           <label>Name:</label>
-          <input type="text" name="username" required/>
+           <input type="text" name="username" required/> 
         </div>
         <div>
-          <label>EmailId:</label>
+           <label>EmailId:</label> 
           <input type="email" name="emailid" required/>
         </div>
         <input class="btn" type="submit" value="Submit">
+      </form> -->
+
+
+    
+
+            <form onsubmit="saveToLocalStorage(event)"> 
+        <label>Name</label><br>
+        <input type="text" name="username" required/><br>
+        <label>EmailId</label><br>
+        <input type="email" name="emailId" required/><br>
+        <button>Submit</button>
       </form>
+       <ul id="listOfitems"></ul> 
 
     
 
@@ -36,8 +48,8 @@
     const name = event.target.username.value;
     const email = event.target.emailid.value;
 
-    localStorage.setItem('name',name);
-    localStorage.setItem('email',email);
+    // localStorage.setItem('name',name);
+    // localStorage.setItem('email',email);
 
     const obj = {
         name:name,
@@ -45,6 +57,12 @@
     }
     localStorage.setItem('userDetails',JSON.stringify(obj));
 }
+          function showUserOnScreen(obj){
+            const parentELem = document.getElementById('listOfitems')
+            const childElem = document.createElement('li')
+            childElem.textContent = obj.name +'-'+obj.email
+            parentELem.appendChild(childElem)
+          }
     </script>
   </body>
 </html>
