@@ -28,8 +28,8 @@
       </form> -->
 
 
-    
-
+      <!-- <ul id="listOfitems"> -->
+         
             <form onsubmit="saveToLocalStorage(event)"> 
         <label>Name</label><br>
         <input type="text" name="username" required/><br>
@@ -37,8 +37,8 @@
         <input type="email" name="emailId" required/><br>
         <button>Submit</button>
       </form>
-       <ul id="listOfitems"></ul> 
-
+    
+       
     
 
     <script>
@@ -62,7 +62,20 @@
             const childElem = document.createElement('li')
             childElem.textContent = obj.name +'-'+obj.email
             parentELem.appendChild(childElem)
+ 
+            const deleteButton = document.createElement('input')
+          deleteButton.type = "button"
+          deleteButton.value = 'Delete'
+          deleteButton.onclick = () => {
+            localStorage.removeItem(obj.email)
+            parentELem.removeChild(childElem)
           }
+          childElem.appendChild(deleteButton)
+          parentELem.appendChild(childElem)
+
+          }
+
+        
     </script>
   </body>
 </html>
