@@ -40,7 +40,7 @@
     
        
     
-
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <script>
         function saveToLocalStorage(event) {
     event.preventDefault();
@@ -55,7 +55,13 @@
         name:name,
         email:email
     }
-    localStorage.setItem('userDetails',JSON.stringify(obj));
+    axios.post("https://crudcrud.com/api/4beff45a506148d09e8b3d876d2b07d6/BigCrudData",obj)
+    .then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+    })
+    // localStorage.setItem('userDetails',JSON.stringify(obj));
 }
           function showUserOnScreen(obj){
             const parentELem = document.getElementById('listOfitems')
